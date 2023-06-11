@@ -1,16 +1,32 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../ProviderContext/AuthProvider";
+import logo from '/tents-solid.svg'
 
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     const navMenu = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
-        <li><Link to='/profile'>Profile</Link></li>
-        <li><Link to='/register'>Register</Link></li>
-        <li><Link to='/signin'>Signin</Link></li>
-        <li><Link to='/signout'>Signout</Link></li>
+        { user && <li><Link to='/dashboard'>Dashboard</Link></li>}
+        { user && <li><Link to='/profile'>Profile</Link></li>}
+        {
+            user ?
+                <>
+                    <li><button onClick={handleLogout}>Signout</button></li>
+                </> : <>
+                    <li><Link to='/register'>Register</Link></li>
+                    <li><Link to='/signin'>Signin</Link></li>
+                </>
+        }
 
     </>
 
@@ -32,10 +48,11 @@ const NavBar = () => {
                     {navMenu}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-5">
+                {user?.displayName ? user.displayName : user?.email}
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                        <img src="./tents-solid.svg" />
+                        <img src={user?.photoURL ? user.photoURL : logo} />
                     </div>
                 </label>
             </div>

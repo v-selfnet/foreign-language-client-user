@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../ProviderContext/AuthProvider";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data)
@@ -18,7 +20,7 @@ const Register = () => {
                 // update name, foto
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        // server: 7 store user info to DB [id, pass]
+                        // store user info to DB [id, pass]
                         const saveUser = { name: data.name, email: data.email, pass: data.password, photo: data.photo }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
@@ -32,17 +34,17 @@ const Register = () => {
                             .then(data => {
                                 if (data.insertedId) {
                                     reset();
-
+                                    navigate('/')
                                 }
                             })
                             .catch(error => {
                                 console.error(error)
-                            }) // end update
-                    })
+                            }) 
+                    }) // end update
                     .catch(error => {
                         console.error(error)
-                    }) // end create new user
-            })
+                    }) 
+            }) // end create new user
     }
 
     return (
@@ -108,8 +110,8 @@ const Register = () => {
                                         <input type="submit" value="Register" className="btn btn-primary" />
                                     </div>
                                 </form>
-                                {/* <SocialLogin></SocialLogin> */}
-                                <p className='text-xs mt-3'>Do not have an Account? <Link to='/login' className='text-orange-600'>Please Login</Link></p>
+                                <SocialLogin></SocialLogin>
+                                <p className='text-xs mt-3'>Already have an Account? <Link to='/signin' className='text-orange-600'>Please Login</Link></p>
                             </div>
                         </div>
                     </div>
