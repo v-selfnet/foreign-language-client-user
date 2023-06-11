@@ -25,7 +25,7 @@ const NavBar = () => {
                         {navMenu}
                     </ul>
                 </div>
-                <Link to='/'><span className="text-2xl font-semibold text-orange-500">Multi Toungs</span><br /><span className="text-xl">Summer Camp</span></Link>
+                <Link to='/'><span className="text-2xl font-semibold">Multi Tongue</span><br /><span className="text-xl">Summer Camp</span></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

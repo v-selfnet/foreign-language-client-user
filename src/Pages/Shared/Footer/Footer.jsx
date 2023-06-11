@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer p-10 bg-neutral text-neutral-content justify-between">
             <div className="flex justify-center items-center gap-10">
                 <img className="w-20" src="./tents-solid.svg" alt="" />
-                <p>Multi Toungs Summer Camp<br />Providing reliable tech since 1992</p>
+                <p>Multi Tongue Summer Camp<br />Providing reliable tech since 1992</p>
             </div>
             <div>
                 <span className="footer-title">Social</span>
@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="text-right">
-                <p><small>&copy;&nbsp; Multi Toungs Summer Camp {currentYear} <br /> All right reserved</small></p>
+                <p><small>&copy;&nbsp; Multi Tongue Summer Camp {currentYear} <br /> All right reserved</small></p>
             </div>
         </footer>
     );
