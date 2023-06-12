@@ -7,7 +7,7 @@ import Reviews from "./Reviews";
 const Home = () => {
     return (
         <div>
-            <Helmet><title>Language Camp | Home</title></Helmet>
+            <Helmet><title>Summer Camp | Home</title></Helmet>
             <TopSlider></TopSlider>
             <Instructor></Instructor>
             <Courses></Courses>

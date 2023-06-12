@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../ProviderContext/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -49,6 +50,7 @@ const Register = () => {
 
     return (
             <>
+             <Helmet><title>Summer Camp | Register</title></Helmet>
                 <div className="hero">
                     <div className="hero-content flex-col lg:flex-row gap-40 mt-10">
                         <div className="text-center lg:text-left w-1/2 space-y-10">

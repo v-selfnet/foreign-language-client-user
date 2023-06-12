@@ -3,6 +3,7 @@ import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../ProviderContext/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Signin = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -29,6 +30,7 @@ const Signin = () => {
 
     return (
         <>
+        <Helmet><title>Summer Camp | Signin</title></Helmet>
             <div className="hero">
                 <div className="hero-content flex-col lg:flex-row gap-40 mt-10">
                     <div className="text-center lg:text-left w-1/2 space-y-10">
