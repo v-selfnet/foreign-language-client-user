@@ -1,27 +1,51 @@
 [
     {
         "image": "https://i.ibb.co/RCF893M/china1200x800.png",
-        "name": "China"
+        "course": "China Language",
+        "instructor": "Li Keqiang",
+        "seats": 12,
+        "price": 140,
+        "enrolled": 40
 
     },
     {
         "image": "https://i.ibb.co/nmPgYzV/Flag-detail-Germany-crest.png",
-        "name": "Germany"
+        "course": "Deutsche Language",
+        "instructor": "Jim Morrison",
+        "seats": 15,
+        "price": 420,
+        "enrolled": 40
     },
     {
         "image": "https://i.ibb.co/0hFV4BB/Flag-of-France-svg.webp",
-        "name": "France"
+        "course": "French Language",
+        "instructor": "Kurt Cobain",
+        "seats": 0,
+        "price": 340,
+        "enrolled": 60
     },
     {
         "image": "https://i.ibb.co/hV3MFjY/Flag-of-Italy-with-border-svg.png",
-        "name": "Italy"
+        "course": "Italian Language",
+        "instructor": "De Rossi Luige",
+        "seats": 12,
+        "price": 230,
+        "enrolled": 430
     },
     {
         "image": "https://i.ibb.co/9qMq6Mt/Flag-of-Japan-svg.png",
-        "name": "Japan"
+        "course": "Japanese Language",
+        "instructor": "Kane Tanaka",
+        "seats": 12,
+        "price": 230,
+        "enrolled": 90
     },
     {
         "image": "https://i.ibb.co/y6nPKZf/41-B0-Oqjw-RWL.png",
-        "name": "USA-English"
+        "course": "English Language",
+        "instructor": "Bruce Willis",
+        "seats": 12,
+        "price": 530,
+        "enrolled": 50
     }
 ]
