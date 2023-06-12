@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import SectionTitle from "../../Components/SectionTitle";
 
 const Courses = () => {
     const { data: courses = [] } = useQuery(['courses'], async () => {
@@ -8,9 +9,12 @@ const Courses = () => {
     })
     return (
         <div>
+             <SectionTitle
+                subHead = {<h3>Total Courses: {courses.length}</h3>}
+                head={"We offered following courses"}
+            ></SectionTitle>
+
             <div className='text-center my-10'>
-                <h3>Total Courses: {courses.length}</h3>
-                <h3 className='text-3xl'>Our All Courses</h3>
                 <div className="grid grid-cols-3 gap-10">
                     {
                         courses.map(course => <div key={course._id} className="card w-96 bg-base-100 shadow-xl">

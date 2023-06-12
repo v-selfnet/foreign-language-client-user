@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import SectionTitle from '../../Components/SectionTitle';
 
 const TopSlider = () => {
     const [photos, setFotos] = useState([]);
@@ -16,11 +17,10 @@ const TopSlider = () => {
     }, [])
     return (
         <>
-            <div className='text-center my-10'>
-                <h3>Total Language: {photos.length}</h3>
-                <h3 className='text-3xl'>Can Learn Following Languages</h3>
-            </div>
-
+        <SectionTitle
+                subHead = {<h3>Total Language: {photos.length}</h3>}
+                head={"our popular Language Courses"}
+            ></SectionTitle>
             <Swiper
                 slidesPerView={4}
                 spaceBetween={30}
