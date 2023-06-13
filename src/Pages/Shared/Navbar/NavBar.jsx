@@ -14,8 +14,8 @@ const NavBar = () => {
 
     const navMenu = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/instructors'>Instructors</Link></li>
-        <li><Link to='/classes'>Classes</Link></li>
+        <li><Link to='/insdetail'>Instructors</Link></li>
+        <li><Link to='/coursedetail'>Classes</Link></li>
         { user && <li><Link to='/dashboard'>Dashboard</Link></li>}
         { user && <li><Link to='/profile'>Profile</Link></li>}
         {

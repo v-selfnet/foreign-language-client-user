@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../Components/SectionTitle";
+import { Link } from "react-router-dom";
 
 const Instructor = () => {
     const { data: instructors = [] } = useQuery(['instructors'], async () => {
@@ -11,7 +12,7 @@ const Instructor = () => {
     return (
         <div>
             <SectionTitle
-                subHead = {<h3>Total Instructors: {instructors.length}</h3>}
+                subHead={<h3>Total Instructors: {instructors.length}</h3>}
                 head={"our popular instructors"}
             ></SectionTitle>
             <div className='text-center my-10'>
@@ -36,7 +37,9 @@ const Instructor = () => {
                         </div>)
                     }
                 </div>
-                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-white bg-primary hover:bg-sky-500 my-10">Detail Information of All Instructors</button>
+                <Link to='/insdetail'>
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg text-white bg-primary hover:bg-sky-500 my-10">Detail Information of All Instructors</button>
+                </Link>
             </div>
         </div>
     );

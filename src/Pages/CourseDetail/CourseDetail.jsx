@@ -7,7 +7,7 @@ const CourseDetail = () => {
     const [courses] = useCourseDetail();
 
     return (
-        <div>
+        <>
             <Helmet><title>Summer Camp | Course Detail</title></Helmet>
             <SectionTitle
                 subHead={<h3>Total Courses: {courses.length}</h3>}
@@ -57,7 +57,7 @@ const CourseDetail = () => {
 
                 </table>
             </div>
-        </div>
+        </>
     );
 };
 
