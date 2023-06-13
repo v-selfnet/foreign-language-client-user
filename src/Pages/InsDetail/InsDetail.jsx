@@ -38,7 +38,7 @@ const InsDetail = () => {
                                 </td>
                                 <td><div className="font-bold">{ins.name}</div></td>
                                 <td>{ins.email}</td>
-                                <td>{ins?.class_name ? ins.class_name.join(' - ') : ''}</td>
+                                <td>{ins?.class_name ? ins.class_name.join(' - ') : 'N/A'}</td>
                                 <td><button className="btn btn-outline btn-xs" >See Classes</button></td>
                             </tr>)
                         }

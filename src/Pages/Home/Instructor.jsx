@@ -25,8 +25,8 @@ const Instructor = () => {
                                     <p className="card-title">{instructor.name}</p>
                                     <p>{instructor.email}</p>
                                 </div>
-                                <h2 className="text-left"> Number of Classes:
-                                    <div className="badge badge-secondary"> {instructor.clsss_number}</div>
+                                <h2 className="text-left"> <span>Number of Classes Taken: </span>
+                                    <div className="badge badge-secondary"> {instructor.class_number}</div>
                                 </h2>
                                 <div className="card-actions pt-4">
                                     <div className="badge badge-outline">Instructor Bio</div>

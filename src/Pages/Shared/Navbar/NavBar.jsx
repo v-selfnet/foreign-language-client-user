@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../ProviderContext/AuthProvider";
 import logo from '/tents-solid.svg'
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate()
 
     const handleLogout = () => {
         logOut()
-            .then(() => { })
+            .then(() => {navigate('/') })
             .catch(error => console.error(error))
     }
 
@@ -16,8 +17,8 @@ const NavBar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/insdetail'>Instructors</Link></li>
         <li><Link to='/coursedetail'>Classes</Link></li>
-        { user && <li><Link to='/dashboard'>Dashboard</Link></li>}
-        { user && <li><Link to='/profile'>Profile</Link></li>}
+        { user && <li><Link to='/dashboard/studentprofile'>Dashboard</Link></li>}
+        {/* { user && <li><Link to='/profile'>Profile</Link></li>} */}
         {
             user ?
                 <>

@@ -7,9 +7,9 @@ const PrivateRoute = ({children}) => {
     const location = useLocation();
     
     if(user) return children
-    if(loading) return <span className="loading loading-infinity loading-lg"></span>
+    if(loading) return <progress className="progress w-full"></progress>
 
-    return <Navigate to='/login' state={{from: location}} replace></Navigate>
+    return <Navigate to='/signin' state={{from: location}} replace></Navigate>
 };
 
 export default PrivateRoute;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Courses = () => {
     const { data: courses = [] } = useQuery(['courses'], async () => {
-        console.log(courses);
+        // console.log(courses);
         const res = await fetch('http://localhost:5000/courses')
         return res.json();
     })
@@ -22,7 +22,7 @@ const Courses = () => {
                             <figure><img src={course.image} alt="img loading..." /></figure>
                             <div className="card-body">
                                 <p className="card-title">{course.course} Class</p>
-                                <h2 className="text-left"> Enrolled:
+                                <h2 className="text-left"> <span>Number of Students Enrolled: </span>
                                     <div className="badge badge-secondary"> {course.enrolled}</div>
                                 </h2>
                                 <div className="card-actions pt-4">

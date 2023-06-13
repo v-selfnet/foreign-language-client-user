@@ -6,6 +6,9 @@ import Signin from "../Pages/Signin/Signin";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import CourseDetail from "../Pages/CourseDetail/CourseDetail";
 import InsDetail from "../Pages/InsDetail/InsDetail";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard/Dashboard";
+import StudentHome from "../Pages/Dashboard/Student/StudentHome";
 
 export const router = createBrowserRouter([
     {
@@ -17,12 +20,12 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/coursedetail',
-                element: <CourseDetail></CourseDetail>
+                path: '/insdetail',
+                element: <PrivateRoute><InsDetail></InsDetail></PrivateRoute>
             },
             {
-                path: '/insdetail',
-                element: <InsDetail></InsDetail>
+                path: '/coursedetail',
+                element: <PrivateRoute><CourseDetail></CourseDetail></PrivateRoute>
             },
             {
                 path: '/register',
@@ -31,6 +34,16 @@ export const router = createBrowserRouter([
             {
                 path: '/signin',
                 element: <Signin></Signin>
+            }
+        ]
+    },
+    {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'studentprofile',
+                element: <StudentHome></StudentHome>
             }
         ]
     },

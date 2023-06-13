@@ -45,7 +45,7 @@ const CourseDetail = () => {
                                 </td>
                                 <td><div className="font-bold">{course.course}</div></td>
                                 <td>{course.instructor}</td>
-                                <td>{course.price}</td>
+                                <td><span>$ </span>{course.price}</td>
                                 <td>{course.seats}</td>
                                 <td>{course.enrolled}</td>
                                 <td><button className="btn btn-outline btn-xs" disabled={course.seats === 0 ? true: false}>Enroll</button></td>
