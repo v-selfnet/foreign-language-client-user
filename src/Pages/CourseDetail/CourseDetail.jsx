@@ -2,13 +2,17 @@ import { Helmet } from "react-helmet-async";
 import useCourseDetail from "../../Hooks/useCourseDetail";
 import SectionTitle from "../../Components/SectionTitle";
 import './CourseDetail.css'
+import { useContext } from "react";
+import { AuthContext } from "../../ProviderContext/AuthProvider";
 
 const CourseDetail = () => {
     const [courses] = useCourseDetail();
+    const {user} = useContext(AuthContext);
+    console.log(user)
 
     const handelFavorite = item => {
-        console.log(item._id)
-        const favoriteItem = { id: item._id, image: item.image, course: item.course, instructor: item.instructor, seats: item.seats, price: item.price, enrolled: item.enrolled }
+        // console.log(item._id)
+        const favoriteItem = { id: item._id, image: item.image, course: item.course, instructor: item.instructor, seats: item.seats, price: item.price, enrolled: item.enrolled, email: user.email }
         console.log(favoriteItem)
         fetch('http://localhost:5000/favorite', {
             method: 'POST',
@@ -21,7 +25,7 @@ const CourseDetail = () => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    alert('ok')
+                    alert('Successfully data update to Database')
                 }
             })
 

@@ -9,6 +9,8 @@ import InsDetail from "../Pages/InsDetail/InsDetail";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import StudentHome from "../Pages/Dashboard/Student/StudentHome";
+import Favorite from "../Pages/Dashboard/Student/Favorite";
+import Payment from "../Pages/Dashboard/Student/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +46,14 @@ export const router = createBrowserRouter([
             {
                 path: 'studentprofile',
                 element: <StudentHome></StudentHome>
+            },
+            {
+                path: 'favorite',
+                element: <Favorite></Favorite>
+            },
+            {
+                path: 'favorite/payment',
+                element: <Payment></Payment>
             }
         ]
     },

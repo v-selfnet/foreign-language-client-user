@@ -37,7 +37,7 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-                    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                    <ul className="menu p-4 w-80 h-full bg-green-200 text-base-content">
                         {/* Sidebar content here */}
                         <div className="flex flex-col justify-center items-center">
                             <div className="w-10 rounded-full">
@@ -48,7 +48,7 @@ const Dashboard = () => {
 
                         <div className="divider"></div>
                         <li><Link to='studentprofile'><FaUserAlt /> My Profile</Link></li>
-                        <li><Link to='#'><FaBookmark/>Favourite Classes</Link></li>
+                        <li><Link to='favorite'><FaBookmark/>Favourite Classes</Link></li>
                         <li><Link to='#'><FaBookOpen/>Enrolled Classes</Link></li>
                         <li><Link to='#'><FaWallet />Payment History</Link></li>
                         <div className="divider"></div>
