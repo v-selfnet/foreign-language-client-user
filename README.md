@@ -22,3 +22,7 @@ Markup : Project Instruction
     Server Source Code Link: [github]
     
     Client Source Code Link: [github]
+
+    Admin Access:
+        Email: aaron@gmail.com
+        Password: Aa123456!

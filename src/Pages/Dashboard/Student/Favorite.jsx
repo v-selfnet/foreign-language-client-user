@@ -22,7 +22,7 @@ const Favorite = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr className="text-lg font-semibold text-red-950">
+                        <tr className="text-red-400 text-base">
                             <th>#</th>
                             <th>Image</th>
                             <th>Course Name</th>

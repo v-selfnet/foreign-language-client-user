@@ -12,6 +12,7 @@ import StudentHome from "../Pages/Dashboard/Student/StudentHome";
 import Favorite from "../Pages/Dashboard/Student/Favorite";
 import Payment from "../Pages/Dashboard/Student/Payment";
 import Enroll from "../Pages/Dashboard/Student/Enroll";
+import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers";
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +45,7 @@ export const router = createBrowserRouter([
         path:'/dashboard',
         element:<Dashboard></Dashboard>,
         children: [
+            // sutdents dashboard route
             {
                 path: 'studentprofile',
                 element: <StudentHome></StudentHome>
@@ -59,7 +61,17 @@ export const router = createBrowserRouter([
             {
                 path: 'enroll',
                 element: <Enroll></Enroll>
+            },
+            {
+                path: 'enroll/payment',
+                element: <Payment></Payment>
+            },
+            // admin dashboard route
+            {
+                path: 'manageusers',
+                element: <ManageUsers></ManageUsers>
             }
+
         ]
     },
     {

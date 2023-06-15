@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const Instructor = () => {
     const { data: instructors = [] } = useQuery(['instructors'], async () => {
-        console.log(instructors);
         const res = await fetch('http://localhost:5000/instructor')
         return res.json();
     })

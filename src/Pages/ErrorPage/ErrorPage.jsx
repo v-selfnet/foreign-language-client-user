@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import logo from '/404.gif'
 
 const ErrorPage = () => {
     return (
@@ -8,7 +9,7 @@ const ErrorPage = () => {
                 <h3 className="text-3xl">Page not found</h3>
                 <p>This site can’t be reached server IP address.<br />Try: <br /> <li>Checking the connection</li> <li>Checking the proxy, firewall, and DNS configuration</li> </p>
             </div>
-            <img src="./404.gif" alt="" />
+            <img src={logo} alt="" />
         </div>
     );
 };

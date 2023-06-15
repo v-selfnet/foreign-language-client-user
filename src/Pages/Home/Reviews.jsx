@@ -11,7 +11,6 @@ import SectionTitle from "../../Components/SectionTitle";
 const Reviews = () => {
 
     const { data: reviews = [] } = useQuery(['reviews'], async () => {
-        console.log(reviews);
         const res = await fetch('http://localhost:5000/reviews')
         return res.json();
     })

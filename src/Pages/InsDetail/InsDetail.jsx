@@ -16,7 +16,7 @@ const InsDetail = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className="text-red-400 text-base">
                         <tr>
                             <th>#</th>
                             <th>Image</th>
