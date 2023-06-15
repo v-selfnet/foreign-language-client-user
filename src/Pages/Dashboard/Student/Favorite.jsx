@@ -9,6 +9,16 @@ const Favorite = () => {
 
     const handelDelete = item => {
         console.log(item)
+        fetch(`http://localhost:5000/favorite/${item._id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    alert('Successfully Deleted Favorite Item')
+                }
+            })
     }
 
     return (

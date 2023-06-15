@@ -9,26 +9,37 @@ const ManageUsers = () => {
         return res.json();
     })
 
-    
+
 
     // make admin
     const handelMakeAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json()
-        .then(data => {
-            console.log(data)
-            if(data.modifiedCount){
-                refetch();
-                alert(`${user.name} become an Admin`)
-            }
-        }))
+            .then(res => res.json()
+                .then(data => {
+                    console.log(data)
+                    if (data.modifiedCount) {
+                        refetch();
+                        alert(`${user.name} become an Admin`)
+                    }
+                }))
     }
 
     // delete user
     const handelDelete = user => {
         console.log(user)
+        fetch(`http://localhost:5000/users/${user._id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch();
+                    alert('Successfully Deleted User')
+                }
+            })
+
     }
 
     return (
@@ -68,10 +79,10 @@ const ManageUsers = () => {
                                 <td>{user.email}</td>
                                 <td>{user?.pass ? user?.pass : 'N/A'}</td>
                                 <td>{
-                                    user.role === 'admin' ? 
-                                    <button className="btn bg-green-500 text-xl"><FaUserCog /></button>
-                                    :<button onClick={() => handelMakeAdmin(user)} className="btn btn-outline text-xl"><FaUser /></button>
-                                    }
+                                    user.role === 'admin' ?
+                                        <button className="btn bg-green-500 text-xl"><FaUserCog /></button>
+                                        : <button onClick={() => handelMakeAdmin(user)} className="btn btn-outline text-xl"><FaUser /></button>
+                                }
 
                                 </td>
                                 <td><button onClick={() => handelDelete(user)} className="btn btn-outline text-xl"><FaTrashAlt /></button></td>
