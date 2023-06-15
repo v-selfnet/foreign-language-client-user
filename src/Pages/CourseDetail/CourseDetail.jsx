@@ -15,7 +15,7 @@ const CourseDetail = () => {
         // console.log(item._id)
         const favoriteItem = { id: item._id, image: item.image, course: item.course, instructor: item.instructor, seats: item.seats, price: item.price, enrolled: item.enrolled, email: user.email }
         console.log(favoriteItem)
-        fetch('http://localhost:5000/favorite', {
+        fetch('https://foreign-language-server-pi.vercel.app/favorite', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const CourseDetail = () => {
     const handelEnroll = item => {
         // console.log(item._id)
         const enrollItem = { id: item._id, image: item.image, course: item.course, instructor: item.instructor, seats: item.seats, price: item.price, enrolled: item.enrolled, email: user.email }
-        fetch('http://localhost:5000/enroll', {
+        fetch('https://foreign-language-server-pi.vercel.app/enroll', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

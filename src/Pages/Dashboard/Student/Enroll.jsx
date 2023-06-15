@@ -10,7 +10,7 @@ const Enroll = () => {
 
     const handelDelete = item => {
         console.log(item)
-        fetch(`http://localhost:5000/enroll/${item._id}`, {
+        fetch(`https://foreign-language-server-pi.vercel.app/enroll/${item._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

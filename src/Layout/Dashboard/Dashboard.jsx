@@ -13,7 +13,7 @@ const Dashboard = () => {
 
     const { data: users = [], refetch } = useQuery(['users'], async () => {
         // console.log(users.email)
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://foreign-language-server-pi.vercel.app/users')
         return res.json();
     })
     refetch();

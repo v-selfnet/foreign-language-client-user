@@ -7,7 +7,7 @@ const useEnroll = () => {
     const {refetch, data: enroll = []} = useQuery({
         queryKey: ['enroll', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/enroll?email=${user?.email}`)
+            const res = await fetch(`https://foreign-language-server-pi.vercel.app/enroll?email=${user?.email}`)
             return res.json()
         },
     })
