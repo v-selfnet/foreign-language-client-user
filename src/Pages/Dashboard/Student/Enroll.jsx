@@ -1,10 +1,11 @@
-import SectionTitle from "../../../Components/SectionTitle";
 import { Helmet } from "react-helmet-async";
+import useEnroll from "../../../Hooks/useEnroll";
+import SectionTitle from "../../../Components/SectionTitle";
 import { Link } from "react-router-dom";
-import useFavorite from "../../../Hooks/useFavorite";
 
-const Favorite = () => {
-    const [favorite, refetch] = useFavorite();
+const Enroll = () => {
+    const [enroll, refetch] = useEnroll();
+    console.log(enroll)
     refetch();
 
     const handelDelete = item => {
@@ -13,10 +14,10 @@ const Favorite = () => {
 
     return (
         <div className="w-full">
-            <Helmet><title>Summer Camp | Favorite Classes</title></Helmet>
+            <Helmet><title>Summer Camp | Enroll Classes</title></Helmet>
             <SectionTitle
-                subHead={<h3>Add to Favorite Total: {favorite.length}</h3>}
-                head={"All of Your Favorite Classes"}
+                subHead={<>Enroll Total: {enroll.length}</>}
+                head={"All of Your Enroll Classes"}
             ></SectionTitle>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -35,7 +36,7 @@ const Favorite = () => {
                     </thead>
                     <tbody>
                         {
-                            favorite.map((course, index) => <tr key={course._id}
+                            enroll.map((course, index) => <tr key={course._id}
                                 className={`${course.seats === 0 ? 'bgRed' : null}`}
                             >
                                 <td>{index + 1}</td>
@@ -73,4 +74,4 @@ const Favorite = () => {
     );
 };
 
-export default Favorite;
+export default Enroll;

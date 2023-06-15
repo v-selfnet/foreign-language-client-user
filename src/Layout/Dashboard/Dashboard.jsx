@@ -49,7 +49,7 @@ const Dashboard = () => {
                         <div className="divider"></div>
                         <li><Link to='studentprofile'><FaUserAlt /> My Profile</Link></li>
                         <li><Link to='favorite'><FaBookmark/>Favourite Classes</Link></li>
-                        <li><Link to='#'><FaBookOpen/>Enrolled Classes</Link></li>
+                        <li><Link to='enroll'><FaBookOpen/>Enrolled Classes</Link></li>
                         <li><Link to='#'><FaWallet />Payment History</Link></li>
                         <div className="divider"></div>
                         <li>

@@ -9,7 +9,7 @@ const NavBar = () => {
 
     const handleLogout = () => {
         logOut()
-            .then(() => {navigate('/') })
+            .then(() => { navigate('/') })
             .catch(error => console.error(error))
     }
 
@@ -17,7 +17,7 @@ const NavBar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/insdetail'>Instructors</Link></li>
         <li><Link to='/coursedetail'>Courses</Link></li>
-        { user && <li><Link to='/dashboard/studentprofile'>Dashboard</Link></li>}
+        {user && <li><Link to='/dashboard/studentprofile'>Dashboard</Link></li>}
         {/* { user && <li><Link to='/profile'>Profile</Link></li>} */}
         {
             user ?
@@ -50,12 +50,28 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-5">
-                {user?.displayName ? user.displayName : user?.email}
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img src={user?.photoURL ? user.photoURL : logo} />
-                    </div>
-                </label>
+                {
+                    user ?
+                        <>
+                            <Link to='/dashboard/studentprofile' className="flex items-center gap-3">
+                                {user?.displayName ? user.displayName : user?.email}
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user?.photoURL ? user.photoURL : logo} />
+                                    </div>
+                                </label>
+                            </Link>
+                        </> : <>
+                            <Link to='/signin'>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={logo} />
+                                    </div>
+                                </label>
+                            </Link>
+                        </>
+
+                }
             </div>
         </div>
     );

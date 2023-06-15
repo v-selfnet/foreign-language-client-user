@@ -10,6 +10,7 @@ const CourseDetail = () => {
     const {user} = useContext(AuthContext);
     console.log(user)
 
+    // favorite item create collection in DB
     const handelFavorite = item => {
         // console.log(item._id)
         const favoriteItem = { id: item._id, image: item.image, course: item.course, instructor: item.instructor, seats: item.seats, price: item.price, enrolled: item.enrolled, email: user.email }
@@ -28,7 +29,26 @@ const CourseDetail = () => {
                     alert('Successfully data update to Database')
                 }
             })
+    }
 
+    // enroll item create collection in DB
+    const handelEnroll = item => {
+        // console.log(item._id)
+        const enrollItem = { id: item._id, image: item.image, course: item.course, instructor: item.instructor, seats: item.seats, price: item.price, enrolled: item.enrolled, email: user.email }
+        fetch('http://localhost:5000/enroll', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(enrollItem)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    alert('Successfully data update to Database')
+                }
+            })
     }
 
     return (
@@ -73,7 +93,9 @@ const CourseDetail = () => {
                                 <td><span>$ </span>{course.price}</td>
                                 <td>{course.seats}</td>
                                 <td>{course.enrolled}</td>
-                                <td><button className="btn btn-outline btn-xs" disabled={course.seats === 0 ? true : false}>Enroll</button></td>
+                                
+                                <td><button onClick={() => handelEnroll(course)} className="btn btn-outline btn-xs" disabled={course.seats === 0 ? true : false}>Enroll</button></td>
+                                
                                 <td><button onClick={() => handelFavorite(course)} className="btn btn-outline btn-xs" disabled={course.seats === 0 ? true : false}>Favorite</button></td>
                             </tr>)
                         }
