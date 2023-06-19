@@ -2,6 +2,7 @@ Markup : Project Instruction
     
     Server Live Link: [vercel]
         Main Link:
+            https://foreign-language-server-pi.vercel.app
         
         Sub Links:
             https://foreign-language-server-pi.vercel.app/users
