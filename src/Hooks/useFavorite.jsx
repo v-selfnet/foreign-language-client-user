@@ -7,7 +7,7 @@ const useFavorite = () => {
     const {data: favorite=[], refetch} = useQuery({
         queryKey: ['favorite', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://foreign-language-server-pi.vercel.app/favorite?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/favorite?email=${user?.email}`)
             return res.json();
         },
     })

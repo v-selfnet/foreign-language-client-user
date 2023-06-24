@@ -2,17 +2,17 @@ Markup : Project Instruction
     
     Server Live Link: [vercel]
         Main Link:
-            https://foreign-language-server-pi.vercel.app
+            http://localhost:5000
         
         Sub Links:
-            https://foreign-language-server-pi.vercel.app/users
-            https://foreign-language-server-pi.vercel.app/slider
-            https://foreign-language-server-pi.vercel.app/courses
-            https://foreign-language-server-pi.vercel.app/instructor
-            https://foreign-language-server-pi.vercel.app/reviews
-            https://foreign-language-server-pi.vercel.app/favorite
-            https://foreign-language-server-pi.vercel.app/favorite?email=${email}
-            https://foreign-language-server-pi.vercel.app/enroll
+            http://localhost:5000/users
+            http://localhost:5000/slider
+            http://localhost:5000/courses
+            http://localhost:5000/instructor
+            http://localhost:5000/reviews
+            http://localhost:5000/favorite
+            http://localhost:5000/favorite?email=${email}
+            http://localhost:5000/enroll
     
     Client Live Link: [firebase]
             https://multi-tongue-summer-camp.web.app

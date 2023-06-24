@@ -23,7 +23,7 @@ const Register = () => {
                     .then(() => {
                         // store user info to DB [id, pass]
                         const saveUser = { name: data.name, email: data.email, pass: data.password, photo: data.photo }
-                        fetch('https://foreign-language-server-pi.vercel.app/users', {
+                        fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

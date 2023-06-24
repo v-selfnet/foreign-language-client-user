@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Courses = () => {
     const { data: courses = [] } = useQuery(['courses'], async () => {
         // console.log(courses);
-        const res = await fetch('https://foreign-language-server-pi.vercel.app/courses')
+        const res = await fetch('http://localhost:5000/courses')
         return res.json();
     })
     return (

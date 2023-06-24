@@ -5,7 +5,7 @@ import { FaTrashAlt, FaUser, FaUserCog } from "react-icons/fa";
 
 const ManageUsers = () => {
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('https://foreign-language-server-pi.vercel.app/users')
+        const res = await fetch('http://localhost:5000/users')
         return res.json();
     })
 
@@ -13,7 +13,7 @@ const ManageUsers = () => {
 
     // make admin
     const handelMakeAdmin = user => {
-        fetch(`https://foreign-language-server-pi.vercel.app/users/admin/${user._id}`, {
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json()
@@ -29,7 +29,7 @@ const ManageUsers = () => {
     // delete user
     const handelDelete = user => {
         console.log(user)
-        fetch(`https://foreign-language-server-pi.vercel.app/users/${user._id}`, {
+        fetch(`http://localhost:5000/users/${user._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

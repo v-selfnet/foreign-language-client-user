@@ -9,7 +9,7 @@ const Favorite = () => {
 
     const handelDelete = item => {
         console.log(item)
-        fetch(`https://foreign-language-server-pi.vercel.app/favorite/${item._id}`, {
+        fetch(`http://localhost:5000/favorite/${item._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

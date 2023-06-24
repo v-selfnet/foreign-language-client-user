@@ -8,7 +8,7 @@ import SectionTitle from '../../Components/SectionTitle';
 const TopSlider = () => {
     const [photos, setFotos] = useState([]);
     useEffect(() => {
-        fetch('https://foreign-language-server-pi.vercel.app/slider')
+        fetch('http://localhost:5000/slider')
             .then(res => res.json())
             .then(data => {
                 setFotos(data)
