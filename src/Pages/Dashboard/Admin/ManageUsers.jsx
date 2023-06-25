@@ -2,15 +2,19 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../../Components/SectionTitle";
 import { FaTrashAlt, FaUser, FaUserCog } from "react-icons/fa";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const ManageUsers = () => {
+    const [axiosSecure] = useAxiosSecure();
+
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
-        return res.json();
+        // hit servr to check [http link] for verifyAdmin
+        // only admin can access this link
+        // http://localhost:5173/dashboard/manageusers
+        const res = await axiosSecure.get('/users')
+        return res.data;
     })
-
-
-
+    
     // make admin
     const handelMakeAdmin = user => {
         fetch(`http://localhost:5000/users/admin/${user._id}`, {

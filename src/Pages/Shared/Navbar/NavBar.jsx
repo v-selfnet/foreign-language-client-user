@@ -1,10 +1,12 @@
-import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../ProviderContext/AuthProvider";
 import logo from '/tents-solid.svg'
+import useAuth from "../../../Hooks/useAuth";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const NavBar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
+    const [isAdmin] = useAdmin();
+
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -17,7 +19,20 @@ const NavBar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/insdetail'>Instructors</Link></li>
         <li><Link to='/coursedetail'>Courses</Link></li>
-        {user && <li><Link to='/dashboard'>Dashboard</Link></li>}
+        {
+            user &&
+            <li>
+                <Link to={isAdmin ? '/dashboard/manageusers' : '/dashboard/studentprofile'}>Dashboard</Link>
+            </li>
+        }
+
+
+        {/* {
+            isAdmin ? <li><Link to="/dashboard/manageusers">Dashboard</Link></li> :
+                <li><Link to="/dashboard/studentprofile">Dashboard</Link></li>
+        } */}
+
+
         {
             user ?
                 <>

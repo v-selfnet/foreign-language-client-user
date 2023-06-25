@@ -1,29 +1,18 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import Footer from "../../Pages/Shared/Footer/Footer";
 import NavBar from "../../Pages/Shared/Navbar/NavBar";
-import { useContext } from "react";
-import { AuthContext } from "../../ProviderContext/AuthProvider";
 import logo from '/tents-solid.svg'
 import { FaBars, FaBookOpen, FaBookmark, FaClock, FaMoneyCheckAlt, FaSignOutAlt, FaUserAlt, FaUsersCog, FaWallet } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
-import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../Hooks/useAuth";
+import useAdmin from '../../Hooks/useAdmin'
 
 const Dashboard = () => {
-    const { user, logOut } = useContext(AuthContext)
-
-    const { data: users = [], refetch } = useQuery(['users'], async () => {
-        // console.log(users.email)
-        const res = await fetch('http://localhost:5000/users')
-        return res.json();
-    })
-    refetch();
-
+    const {user, logOut} = useAuth();
     const navigate = useNavigate();
 
-    const roleFind = users.filter(role => role.role === 'admin');
-    console.log('findadmin:', roleFind)
-    const isAdmin = roleFind.find(email => email.email === user?.email)
-    console.log('role', isAdmin)
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin()
 
     const handleLogout = () => {
         logOut()
@@ -47,8 +36,6 @@ const Dashboard = () => {
                         <span className="text-red-600 text-3xl">{user?.displayName ? user.displayName : user?.email}</span>
                     </h1>
                     <Outlet></Outlet>
-                    {/* <label htmlFor="my-drawer-2" className="drawer-button lg:hidden absolute top-0 left-10"><FaSignOutAlt /></label> */}
-
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -64,7 +51,6 @@ const Dashboard = () => {
                         <div className="divider"></div>
 
                         {
-                            // roleFind.filter(email => email.email === user?.email) ?
                             isAdmin ?
                             <>
                                 <li><Link to='adminprofile'><FaUserAlt /> Admin Profile</Link></li>
